@@ -1,2 +1,2 @@
-jquery-smodal
+jquery-modale
 =============
