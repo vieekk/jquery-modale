@@ -1,7 +1,15 @@
 .modale {
+	background-color: #fff;
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	border-radius: 10px;
+
+	.modale-header,
+	.modale-content,
+	.modale-footer {
+		padding: 10px;
+	}
 }
 
 .modale-wrapper {
@@ -22,16 +30,27 @@
 	left: 0;
 }
 
-.foo {
+.modale-header {
+	background-color: #eee;
+	border-radius: 10px 10px 0 0;
+}
+
+.modale-content {
 	background-color: #fff;
+	overflow: auto;
+}
+
+.modale-footer {
+	background-color: #eee;
+	border-radius: 0 0 10px 10px;
+}
+
+.foo {
 	width: 600px;
 	height: 400px;
-	border: 1px solid #000;
 }
 
 .bar {
-	background-color: #fff;
 	width: 800px;
 	height: 200px;
-	border: 1px solid #000;
 }
