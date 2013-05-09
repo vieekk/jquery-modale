@@ -1,6 +1,22 @@
 var Modale = (function ($) {
-	function Modale($modale, options) {
-		this.$modale = $modale;
+	function Modale($wrapper, options) {
+		this.$wrapper = $wrapper.filter('.modale-wrapper').eq(0);
+		this.$modale = this.$wrapper.children('.modale').eq(0);
+
+		var defaults = {
+			overlay: true,
+			opacity: 0.5
+		};
+		this.settings = $.extend({}, defaults, options);
+
+		this.applyMargins();
+		this.show();
+		if (this.settings.overlay) this.addOverlay();
+	}
+
+	Modale.prototype.addOverlay = function () {
+		this.$overlay = $('<div class="modale-overlay"></div>').insertBefore(this.$modale);
+		this.$overlay.css('opacity', this.settings.opacity);
 	}
 
 	Modale.prototype.applyMargins = function () {
@@ -11,11 +27,7 @@ var Modale = (function ($) {
 	}
 
 	Modale.prototype.show = function () {
-		this.$modale.fadeIn(500);
-	}
-
-	Modale.protype.wrap = function () {
-		// this.$wrapper = $('<div class="modale-wrapper').insertAfter(this.$modale);
+		this.$wrapper.fadeIn(500);
 	}
 
 	return Modale;
@@ -23,13 +35,11 @@ var Modale = (function ($) {
 
 (function($) {
 	$.fn.modale = function() {
-		var modale = new Modale($(this));
-		modale.applyMargins();
-		modale.show();
+		new Modale($(this));
 	};
 
 	$('.modale-trigger').on('click', function (event) {
 		event.preventDefault();
-		$('#' + $(this).data('modaleId') + '.modale').modale();
+		$('#' + $(this).data('modaleId') + '.modale-wrapper').modale();
 	});
 })(jQuery);

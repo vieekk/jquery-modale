@@ -7,8 +7,12 @@
 	<body>
 		<a href="#" class="modale-trigger" data-modale-id="foo">Trigger foo</a>
 		<button class="modale-trigger" data-modale-id="bar">Trigger bar</button>
-		<div id="foo" class="modale foo">foo</div>
-		<div id="bar" class="modale bar">bar</div>
+		<div id="foo" class="modale-wrapper">
+			<div class="modale foo">foo</div>
+		</div>
+		<div id="bar" class="modale-wrapper">
+			<div class="modale bar">bar</div>
+		</div>
 		<script src="lib/less.min.js" type="text/javascript"></script>
 		<script src="lib/jquery.min.js" type="text/javascript"></script>
 		<script src="src/jquery.modale.js" type="text/javascript"></script>
