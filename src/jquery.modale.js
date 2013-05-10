@@ -18,11 +18,8 @@ var Modale = (function ($) {
 
 	Modale.prototype.bind = function () {
 		var that = this;
-
-		this.$wrapper.on('modale-show', function () {
-			that.show();
-		});
-
+		this.$wrapper.on('modale-show', function () { that.show(); });
+		this.$wrapper.on('modale-hide', function () { that.hide(); });
 		this.$modal.find('.modale-hide').on('click', function (event) {
 			event.preventDefault();
 			that.hide();
@@ -35,7 +32,11 @@ var Modale = (function ($) {
 	}
 
 	Modale.prototype.applyHeights = function () {
-		this.$content.height((this.$modal.height() - this.$header.height() - this.$footer.height()) + 'px');
+		var height = this.$modal.height() - this.$header.outerHeight() - this.$footer.outerHeight() + 'px';
+		this.$content.css({
+			'height': height,
+			'max-height': height
+		});
 	}
 
 	Modale.prototype.applyMargins = function () {
