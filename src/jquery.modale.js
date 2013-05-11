@@ -40,9 +40,11 @@ var Modale = (function ($) {
 	}
 
 	Modale.prototype.applyMargins = function () {
+		var top = '-' + Math.round(this.$modal.height()/2) + 'px';
+		var left = '-' + Math.round(this.$modal.width()/2) + 'px';
 		this.$modal.css({
-			'margin-left': '-' + Math.round(this.$modal.width()/2) + 'px',
-			'margin-top': '-' + Math.round(this.$modal.height()/2) + 'px'
+			'margin-top': top,
+			'margin-left': left
 		});
 	}
 

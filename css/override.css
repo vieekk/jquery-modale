@@ -1,7 +1,7 @@
 .foo {
   width: 600px;
   height: 400px;
-  font-family: arial, sans-serif;
+  border: 2px solid #000;
 }
 .foo .modale-header,
 .foo .modale-footer {
